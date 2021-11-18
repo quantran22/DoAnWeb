@@ -90,7 +90,7 @@ a#scrollUp i {
 .social-icons ul li a {
     border: 0 none;
     border-radius: 0;
-    color: #696763;
+    color: #5BBCEC;
     padding: 0px;
 }
 
@@ -771,9 +771,9 @@ h2.title:before {
 
 .shipping {
     background-color: #F2F2F2;
-    margin-top: 40px;
+    margin-top: 400px;
     overflow: hidden;
-    padding-top: 20px;
+    padding-top: 200px;
     position: relative;
 }
 

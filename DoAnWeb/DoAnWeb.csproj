@@ -45,13 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -126,34 +128,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Context\BbModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BbModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\BbModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\BbModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BbModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Context\LoaiSanPham.cs">
-      <DependentUpon>BbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\NhaSanXuat.cs">
-      <DependentUpon>BbModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Context\SanPham.cs">
-      <DependentUpon>BbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\DoanhNhanController.cs" />
     <Compile Include="Controllers\DoAnLTQLEntities2.cs" />
-    <Compile Include="Controllers\DoAnLTQLEntities21.cs" />
     <Compile Include="Controllers\GamingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProduceController.cs" />
@@ -162,6 +139,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\LoaiSanPham.cs" />
+    <Compile Include="Models\ModelDbContext.cs" />
+    <Compile Include="Models\NhaSanXuat.cs" />
+    <Compile Include="Models\SanPham.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1917,37 +1899,11 @@
     <Content Include="Content\images\cart\three.png" />
     <Content Include="Content\images\cart\two.png" />
     <Content Include="Content\images\home\bg_border.png" />
-    <Content Include="Content\images\home\gallery1.jpg" />
-    <Content Include="Content\images\home\gallery2.jpg" />
-    <Content Include="Content\images\home\gallery3.jpg" />
-    <Content Include="Content\images\home\gallery4.jpg" />
-    <Content Include="Content\images\home\girl1.jpg" />
-    <Content Include="Content\images\home\girl2.jpg" />
-    <Content Include="Content\images\home\girl3.jpg" />
-    <Content Include="Content\images\home\iframe1.png" />
-    <Content Include="Content\images\home\iframe2.png" />
-    <Content Include="Content\images\home\iframe3.png" />
-    <Content Include="Content\images\home\iframe4.png" />
     <Content Include="Content\images\home\logo.png" />
     <Content Include="Content\images\home\map.png" />
     <Content Include="Content\images\home\new.png" />
-    <Content Include="Content\images\home\partner1.png" />
-    <Content Include="Content\images\home\partner2.png" />
-    <Content Include="Content\images\home\partner3.png" />
-    <Content Include="Content\images\home\partner4.png" />
-    <Content Include="Content\images\home\pricing.png" />
-    <Content Include="Content\images\home\product1.jpg" />
-    <Content Include="Content\images\home\product2.jpg" />
-    <Content Include="Content\images\home\product3.jpg" />
-    <Content Include="Content\images\home\product4.jpg" />
-    <Content Include="Content\images\home\product5.jpg" />
-    <Content Include="Content\images\home\product6.jpg" />
-    <Content Include="Content\images\home\recommend1.jpg" />
-    <Content Include="Content\images\home\recommend2.jpg" />
-    <Content Include="Content\images\home\recommend3.jpg" />
     <Content Include="Content\images\home\sale.png" />
     <Content Include="Content\images\home\searchicon.png" />
-    <Content Include="Content\images\home\shipping.jpg" />
     <Content Include="Content\images\product-details\1.jpg" />
     <Content Include="Content\images\product-details\new.jpg" />
     <Content Include="Content\images\product-details\rating.png" />
@@ -1962,16 +1918,6 @@
     <Content Include="Content\images\shop\product7.jpg" />
     <Content Include="Content\images\shop\product8.jpg" />
     <Content Include="Content\images\shop\product9.jpg" />
-    <Content Include="Context\BbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BbModel.edmx</DependentUpon>
-      <LastGenOutput>BbModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Context\BbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BbModel.edmx</DependentUpon>
-      <LastGenOutput>BbModel.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -2021,13 +1967,6 @@
     <Content Include="Content\fontawesome-free-6.0.0-beta2-web\webfonts\fa-regular-400.woff2" />
     <Content Include="Content\fontawesome-free-6.0.0-beta2-web\webfonts\fa-solid-900.ttf" />
     <Content Include="Content\fontawesome-free-6.0.0-beta2-web\webfonts\fa-solid-900.woff2" />
-    <EntityDeploy Include="Context\BbModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BbModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Context\BbModel.edmx.diagram">
-      <DependentUpon>BbModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2062,7 +2001,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Context\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

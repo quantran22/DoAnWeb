@@ -1,5 +1,6 @@
 ﻿
-using DoAnWeb.Context;
+
+using DoAnWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,15 @@ namespace DoAnWeb.Controllers
 {
     public class HomeController : Controller
     {
-        DoAnLTQLEntities DbDoAnLTQLEntities = new DoAnLTQLEntities();
+        ModelDbContext DbModelDbContext = new ModelDbContext();
         public ActionResult Index()
         {
-            var Istcategory = DbDoAnLTQLEntities.NhaSanXuat.ToList();
-            
-            return View(Istcategory);
+            HomeModel DbHomeModel = new HomeModel();
+
+            DbHomeModel.ListNSX = DbModelDbContext.NhaSanXuat.ToList();
+            DbHomeModel.ListLSP = DbModelDbContext.LoaiSanPham.ToList();
+            DbHomeModel.ListSP = DbModelDbContext.SanPham.ToList();
+            return View(DbHomeModel);
         }
 
         public ActionResult About()

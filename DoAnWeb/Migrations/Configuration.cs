@@ -5,14 +5,14 @@ namespace DoAnWeb.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<DoAnWeb.Context.DoAnLTQLEntities>
+    internal sealed class Configuration : DbMigrationsConfiguration<DoAnWeb.Models.ModelDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(DoAnWeb.Context.DoAnLTQLEntities context)
+        protected override void Seed(DoAnWeb.Models.ModelDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
