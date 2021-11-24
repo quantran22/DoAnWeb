@@ -16,6 +16,7 @@ namespace DoAnWeb.Models
         public virtual DbSet<LoaiSanPham> LoaiSanPham { get; set; }
         public virtual DbSet<NhaSanXuat> NhaSanXuat { get; set; }
         public virtual DbSet<SanPham> SanPham { get; set; }
+        public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

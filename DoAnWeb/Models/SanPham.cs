@@ -10,8 +10,8 @@ namespace DoAnWeb.Models
     public partial class SanPham
     {
         [Key]
-        [StringLength(10)]
-        public string MaSanPham { get; set; }
+
+        public int? MaSanPham { get; set; }
 
         [StringLength(10)]
         public string MaLoaiSanPham { get; set; }

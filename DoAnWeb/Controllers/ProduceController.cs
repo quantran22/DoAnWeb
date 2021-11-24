@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace DoAnWeb.Controllers
 {
     public class ProduceController : Controller
     {
+        ModelDbContext DbModelDbContext = new ModelDbContext();
         // GET: Produce
-        public ActionResult Detail()
+        public ActionResult Detail(string ID)
         {
-            return View();
+            var Istcategory = DbModelDbContext.NhaSanXuat.Where(n => n.MaNhaSanXuat == ID).FirstOrDefault();
+            return View(Istcategory);
         }
     }
 }
